@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://gfypngo7c7yv"]
+
+[ext_resource type="Script" path="res://entities/scenes/final_portal.gd" id="1_gtu36"]
+[ext_resource type="Texture2D" uid="uid://c63h7t3fbnvob" path="res://entities/assets/backgrounds/black portal.png" id="2_38ytu"]
+
+[sub_resource type="Animation" id="Animation_vkvw6"]
+resource_name = "level3end"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcje5"]
+_data = {
+"level3end": SubResource("Animation_vkvw6")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0o1om"]
+radius = 37.0
+height = 124.0
+
+[node name="fire_prompt_black" type="Area2D"]
+script = ExtResource("1_gtu36")
+
+[node name="black" type="Sprite2D" parent="."]
+position = Vector2(1071, 100)
+scale = Vector2(3, 3)
+texture = ExtResource("2_38ytu")
+hframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="black"]
+libraries = {
+"": SubResource("AnimationLibrary_lcje5")
+}
+speed_scale = 1.168
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1072, 101)
+shape = SubResource("CapsuleShape2D_0o1om")

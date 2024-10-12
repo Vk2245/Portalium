@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://pew64k27q6bf"]
+
+[ext_resource type="AudioStream" uid="uid://blny2jhwwronb" path="res://entities/assets/stranger-things-124008.mp3" id="1_k1cvh"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+position = Vector2(-76, 0)
+stream = ExtResource("1_k1cvh")
+autoplay = true
+attenuation = 1.07177

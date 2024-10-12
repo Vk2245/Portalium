@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkchef6cr0jb1"]
+
+[ext_resource type="PackedScene" uid="uid://bygfveeoi00b8" path="res://entities/scenes/blue_portal.tscn" id="1_mslby"]
+[ext_resource type="Script" path="res://entities/scenes/instructions.gd" id="1_u8oiq"]
+[ext_resource type="Texture2D" uid="uid://2ufrdwjginot" path="res://entities/assets/Pixel Adventure 1/Free/Background/space.png" id="2_cw673"]
+[ext_resource type="PackedScene" uid="uid://bob8feks2ppe4" path="res://entities/scenes/time_portal.tscn" id="2_rcklg"]
+[ext_resource type="PackedScene" uid="uid://cq3hwp2fjssf4" path="res://entities/scenes/exit_portal.tscn" id="3_x0f2h"]
+[ext_resource type="PackedScene" uid="uid://cmptq01xf7cgi" path="res://entities/scenes/red_portal.tscn" id="6_lmsjk"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u8oiq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 653.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(575, 326)
+scale = Vector2(2.875, 1.62)
+texture = ExtResource("2_cw673")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 37.0
+offset_right = 816.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 45
+text = "INSTRUCTIONS"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -156.0
+offset_top = 95.0
+offset_right = 361.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 22
+text = "BLUE PORTAL : Level Starts Here."
+
+[node name="Label4" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -185.0
+offset_top = 511.0
+offset_right = 599.0
+offset_bottom = 582.0
+theme_override_font_sizes/font_size = 22
+text = "SPACE  : JUMP    LEFT KEY:  MOVE LEFT     RIGHT KEY:  MOVE RIGHT 
+ESCAPE KEY: OPTIONS"
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -144.0
+offset_top = 197.0
+offset_right = 479.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 22
+text = "YELLOW PORTAL : This Resets The Timer
+And Also Spawns The Player At a Different Location. "
+
+[node name="entry portal" parent="." instance=ExtResource("1_mslby")]
+position = Vector2(-16, 51)
+
+[node name="time portal" parent="." instance=ExtResource("2_rcklg")]
+position = Vector2(706, 594)
+rotation = 4.71239
+
+[node name="exit portal" parent="." instance=ExtResource("3_x0f2h")]
+position = Vector2(785, 610)
+rotation = 3.14159
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 998.0
+offset_top = 554.0
+offset_right = 1065.0
+offset_bottom = 604.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 358.0
+offset_right = 721.0
+offset_bottom = 390.0
+theme_override_font_sizes/font_size = 23
+text = "BLACK PORTAL: You have to reach here.
+"
+
+[node name="red portal" parent="." instance=ExtResource("6_lmsjk")]
+position = Vector2(408, 295)
+
+[node name="label 4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 448.0
+offset_right = 783.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 22
+text = "RED PORTAL: Some Special \"Element\", Try It"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

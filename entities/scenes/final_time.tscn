@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj2hlt1gy7mc2"]
+
+[ext_resource type="Script" path="res://entities/scenes/final_time.gd" id="1_532ev"]
+[ext_resource type="Texture2D" uid="uid://wag54d7nv4tn" path="res://entities/assets/backgrounds/yellow portal.png" id="1_qycg3"]
+
+[sub_resource type="Animation" id="Animation_s3qw7"]
+resource_name = "finaltime"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rpo27"]
+_data = {
+"finaltime": SubResource("Animation_s3qw7")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1k6r"]
+radius = 38.0
+height = 128.0
+
+[node name="final time" type="Area2D"]
+script = ExtResource("1_532ev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(342, 244)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_qycg3")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_rpo27")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(341, 245)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_q1k6r")

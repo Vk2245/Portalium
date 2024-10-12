@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://20mtruu0ofp3"]
+
+[ext_resource type="Script" path="res://entities/scenes/timer_3.gd" id="1_hqxmx"]
+
+[node name="timer_3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqxmx")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 170.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 50
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

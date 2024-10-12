@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://wf31xrqe54ou"]
+
+[ext_resource type="Texture2D" uid="uid://dc10k7qdjkmeq" path="res://entities/assets/new/earth bg.jpg" id="1_ahko4"]
+[ext_resource type="Texture2D" uid="uid://c1c1ducla2l02" path="res://entities/assets/backgrounds/village.jpg" id="2_yfqtq"]
+[ext_resource type="PackedScene" uid="uid://dca1igp5uk42h" path="res://entities/scenes/earth_prompt_black.tscn" id="3_nhsb7"]
+[ext_resource type="PackedScene" uid="uid://cor758fasuk66" path="res://entities/scenes/arrow_prompt_back.tscn" id="4_hjles"]
+[ext_resource type="PackedScene" uid="uid://cq8vt03f8farj" path="res://entities/scenes/player.tscn" id="5_a2prx"]
+[ext_resource type="PackedScene" uid="uid://20mtruu0ofp3" path="res://entities/scenes/timer_3.tscn" id="6_x8n3p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys6x3"]
+size = Vector2(1177, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhbc8"]
+size = Vector2(13, 635)
+
+[node name="earth prompt" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 324.75)
+scale = Vector2(1.85304, 1.67903)
+texture = ExtResource("1_ahko4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(576, 630)
+scale = Vector2(0.345481, 0.1)
+texture = ExtResource("2_yfqtq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(575.5, 631)
+shape = SubResource("RectangleShape2D_ys6x3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3.5, 307.5)
+shape = SubResource("RectangleShape2D_uhbc8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1160, 313)
+shape = SubResource("RectangleShape2D_uhbc8")
+
+[node name="earth_prompt_black" parent="." instance=ExtResource("3_nhsb7")]
+position = Vector2(23, 434)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 84.0
+offset_right = 1121.0
+offset_bottom = 190.0
+theme_override_colors/font_color = Color(0.45098, 0.211765, 0.160784, 1)
+theme_override_font_sizes/font_size = 77
+text = "You did not cross red portal !!"
+
+[node name="arrow_prompt_back" parent="." instance=ExtResource("4_hjles")]
+position = Vector2(59, 561)
+
+[node name="player" parent="." instance=ExtResource("5_a2prx")]
+position = Vector2(279, 393)
+
+[node name="timer_3" parent="." instance=ExtResource("6_x8n3p")]
+offset_left = 497.0
+offset_top = 6.0
+offset_right = 673.0
+offset_bottom = 58.0
+
+[connection signal="area_entered" from="arrow_prompt_back" to="earth_prompt_black" method="_on_arrow_prompt_back_area_entered"]

@@ -1,0 +1,282 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmkawipnnd23g"]
+
+[ext_resource type="Texture2D" uid="uid://c8pfy3r7y27su" path="res://entities/assets/backgrounds/blue sky.jpg" id="1_gitd4"]
+[ext_resource type="Texture2D" uid="uid://c1c1ducla2l02" path="res://entities/assets/backgrounds/village.jpg" id="2_oncxh"]
+[ext_resource type="PackedScene" uid="uid://cq3hwp2fjssf4" path="res://entities/scenes/exit_portal.tscn" id="3_ks3dt"]
+[ext_resource type="PackedScene" uid="uid://bygfveeoi00b8" path="res://entities/scenes/blue_portal.tscn" id="4_yheoi"]
+[ext_resource type="PackedScene" uid="uid://cq8vt03f8farj" path="res://entities/scenes/player.tscn" id="6_3i2oc"]
+[ext_resource type="PackedScene" uid="uid://cudd48koqxx1m" path="res://entities/scenes/timer_2.tscn" id="7_2e5ls"]
+[ext_resource type="PackedScene" uid="uid://dy5hydvhqhwjc" path="res://entities/scenes/time_portal_2.tscn" id="7_gmg7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7hry"]
+size = Vector2(744.124, 36.6489)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56q3x"]
+size = Vector2(24, 683)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6wui"]
+size = Vector2(1175, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kotq0"]
+size = Vector2(133, 36.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdyso"]
+size = Vector2(273, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmx0"]
+size = Vector2(975.002, 1600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmy2f"]
+size = Vector2(50, 67)
+
+[node name="Level 2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(577, 326.25)
+scale = Vector2(1.58038, 1.68863)
+texture = ExtResource("1_gitd4")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(577, 326.25)
+scale = Vector2(1.58038, 1.68863)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(-0.260803, 184.617)
+scale = Vector2(0.217385, 0.078412)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.89828, 182.282)
+shape = SubResource("RectangleShape2D_w7hry")
+
+[node name="left wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left wall"]
+position = Vector2(-5, 331.5)
+shape = SubResource("RectangleShape2D_56q3x")
+
+[node name="right wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right wall"]
+position = Vector2(1158, 324)
+shape = SubResource("RectangleShape2D_56q3x")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(577.5, -1.5)
+shape = SubResource("RectangleShape2D_l6wui")
+
+[node name="exit portal" parent="." instance=ExtResource("3_ks3dt")]
+position = Vector2(474, 313)
+
+[node name="obs horizontal short" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="obs horizontal short"]
+position = Vector2(159.8, 121.7)
+scale = Vector2(0.0406103, 0.0825204)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs horizontal short"]
+position = Vector2(160, 126.75)
+shape = SubResource("RectangleShape2D_kotq0")
+
+[node name="obs horizontal short3" type="StaticBody2D" parent="."]
+position = Vector2(349, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs horizontal short3"]
+position = Vector2(159.8, 121.7)
+scale = Vector2(0.0406103, 0.0825204)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs horizontal short3"]
+position = Vector2(160, 126.75)
+shape = SubResource("RectangleShape2D_kotq0")
+
+[node name="obs horizontal short4" type="StaticBody2D" parent="."]
+position = Vector2(615, 154)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs horizontal short4"]
+position = Vector2(159.8, 121.7)
+scale = Vector2(0.0406103, 0.0825204)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs horizontal short4"]
+position = Vector2(159, 124)
+shape = SubResource("RectangleShape2D_kotq0")
+
+[node name="obs horizontal short2" type="StaticBody2D" parent="."]
+position = Vector2(169, 58)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs horizontal short2"]
+position = Vector2(159.8, 121.7)
+scale = Vector2(0.0406103, 0.0825204)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs horizontal short2"]
+position = Vector2(160, 126.75)
+shape = SubResource("RectangleShape2D_kotq0")
+
+[node name="player" parent="." instance=ExtResource("6_3i2oc")]
+position = Vector2(-153, -115)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(749.7, 125.6)
+scale = Vector2(0.080223, 0.1)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(749.2, 125.6)
+shape = SubResource("RectangleShape2D_rdyso")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(-534, 342)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6"]
+position = Vector2(749.7, 125.6)
+scale = Vector2(0.080223, 0.1)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(749.2, 125.6)
+shape = SubResource("RectangleShape2D_rdyso")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(1011.7, 326.6)
+scale = Vector2(0.080223, 0.1)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(1012.2, 326.6)
+shape = SubResource("RectangleShape2D_rdyso")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-424, 81)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+position = Vector2(970.986, 326.102)
+scale = Vector2(0.080223, 0.1)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(969.286, 326.502)
+shape = SubResource("RectangleShape2D_rdyso")
+
+[node name="obs vert short" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="obs vert short"]
+position = Vector2(898, 286)
+rotation = 1.5708
+scale = Vector2(0.0231817, 0.0987253)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs vert short"]
+position = Vector2(898.625, 286.875)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_3hmx0")
+
+[node name="obs vert short2" type="StaticBody2D" parent="."]
+position = Vector2(-423, 81)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs vert short2"]
+position = Vector2(857.286, 285.502)
+rotation = 1.5708
+scale = Vector2(0.0231817, 0.0987253)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs vert short2"]
+position = Vector2(857.911, 286.377)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_3hmx0")
+
+[node name="obs vert short4" type="StaticBody2D" parent="."]
+position = Vector2(-183, 289)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs vert short4"]
+position = Vector2(897.286, 280.502)
+rotation = 1.5708
+scale = Vector2(0.0231817, 0.0987253)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs vert short4"]
+position = Vector2(897.911, 281.377)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_3hmx0")
+
+[node name="obs vert short5" type="StaticBody2D" parent="."]
+position = Vector2(-101, 285)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs vert short5"]
+position = Vector2(898, 266)
+rotation = 1.5708
+scale = Vector2(0.0349188, 0.0987253)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs vert short5"]
+position = Vector2(898, 245)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_3hmx0")
+
+[node name="obs vert short6" type="StaticBody2D" parent="."]
+position = Vector2(-10, 284)
+
+[node name="Sprite2D" type="Sprite2D" parent="obs vert short6"]
+position = Vector2(894, 233.63)
+rotation = 1.5708
+scale = Vector2(0.0539152, 0.0987253)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs vert short6"]
+position = Vector2(895, 182)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_3hmx0")
+
+[node name="obs vert short3" type="StaticBody2D" parent="."]
+position = Vector2(1537, -64)
+rotation = 2.35619
+
+[node name="Sprite2D" type="Sprite2D" parent="obs vert short3"]
+position = Vector2(926.436, 315.141)
+rotation = 2.35619
+scale = Vector2(0.0231817, 0.0987253)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs vert short3"]
+position = Vector2(927.061, 316.016)
+rotation = 0.785398
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_3hmx0")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7"]
+position = Vector2(382.6, 426.246)
+rotation = -1.5708
+scale = Vector2(0.0189237, 0.1)
+texture = ExtResource("2_oncxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(383.6, 426.292)
+shape = SubResource("RectangleShape2D_pmy2f")
+
+[node name="time portal 2" parent="." instance=ExtResource("7_gmg7r")]
+position = Vector2(-49, 503)
+
+[node name="entry portal" parent="." instance=ExtResource("4_yheoi")]
+position = Vector2(-132, -40)
+
+[node name="timer_2" parent="." instance=ExtResource("7_2e5ls")]
+offset_left = 489.0
+offset_top = 3.0
+offset_right = 654.0
+offset_bottom = 52.0
+
+[connection signal="area_entered" from="exit portal" to="exit portal" method="_on_area_entered"]
+[connection signal="area_entered" from="time portal 2" to="time portal 2" method="_on_area_entered"]

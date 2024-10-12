@@ -1,0 +1,249 @@
+[gd_scene load_steps=17 format=3 uid="uid://dn235vc3a3u0i"]
+
+[ext_resource type="Texture2D" uid="uid://bmgqvuilvtpbr" path="res://entities/assets/backgrounds/background-blue.png" id="1_iura0"]
+[ext_resource type="PackedScene" uid="uid://cq8vt03f8farj" path="res://entities/scenes/player.tscn" id="3_70idn"]
+[ext_resource type="PackedScene" uid="uid://bygfveeoi00b8" path="res://entities/scenes/blue_portal.tscn" id="4_oi5lq"]
+[ext_resource type="PackedScene" uid="uid://cq3hwp2fjssf4" path="res://entities/scenes/exit_portal.tscn" id="5_lvpvu"]
+[ext_resource type="PackedScene" uid="uid://bob8feks2ppe4" path="res://entities/scenes/time_portal.tscn" id="6_bx26x"]
+[ext_resource type="Texture2D" uid="uid://dn2o3s3xmb0uf" path="res://entities/assets/backgrounds/iron.jpg" id="7_7jmig"]
+[ext_resource type="PackedScene" uid="uid://u2f61svlqo8i" path="res://entities/scenes/timer.tscn" id="7_phaxj"]
+[ext_resource type="PackedScene" uid="uid://pew64k27q6bf" path="res://entities/scenes/audio_stream_player_2d.tscn" id="8_f0hvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5awqo"]
+size = Vector2(17.9403, 0.948694)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2ry0"]
+size = Vector2(27, 690)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7axc"]
+size = Vector2(1183, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dmdg"]
+size = Vector2(321, 50.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f54fe"]
+size = Vector2(194.5, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rphqq"]
+size = Vector2(50, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yine"]
+size = Vector2(440, 825)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qntbl"]
+size = Vector2(106, 47)
+
+[node name="Main Game" type="Node2D"]
+
+[node name="Space" type="Sprite2D" parent="."]
+position = Vector2(572, 325)
+scale = Vector2(2.895, 1.6375)
+texture = ExtResource("1_iura0")
+metadata/_edit_lock_ = true
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="Parallax-space-backgound2" type="Sprite2D" parent="ground"]
+position = Vector2(576.5, 646)
+scale = Vector2(0.343183, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(576, 656)
+scale = Vector2(67, 67)
+shape = SubResource("RectangleShape2D_5awqo")
+
+[node name="left wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left wall"]
+position = Vector2(-10.5, 326)
+shape = SubResource("RectangleShape2D_d2ry0")
+
+[node name="right wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right wall"]
+position = Vector2(1161, 321)
+shape = SubResource("RectangleShape2D_d2ry0")
+
+[node name="top wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top wall"]
+position = Vector2(581, -7)
+shape = SubResource("RectangleShape2D_l7axc")
+
+[node name="player" parent="." instance=ExtResource("3_70idn")]
+position = Vector2(-187, 413)
+
+[node name="entry portal" parent="." instance=ExtResource("4_oi5lq")]
+position = Vector2(-137, 466)
+
+[node name="exit portal" parent="." instance=ExtResource("5_lvpvu")]
+position = Vector2(485, -152)
+
+[node name="time portal" parent="." groups=["portal"] instance=ExtResource("6_bx26x")]
+position = Vector2(-234, -141)
+
+[node name="horizontal long" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal long"]
+position = Vector2(845.955, 566.3)
+scale = Vector2(0.0930108, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal long"]
+position = Vector2(846.455, 566.85)
+shape = SubResource("RectangleShape2D_2dmdg")
+
+[node name="horizontal short" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal short"]
+position = Vector2(521.95, 489.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal short"]
+position = Vector2(520, 487)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="horizontal short3" type="StaticBody2D" parent="."]
+position = Vector2(-290, -245)
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal short3"]
+position = Vector2(536.95, 501.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal short3"]
+position = Vector2(535, 499)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="horizontal short2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal short2"]
+position = Vector2(539.95, 343.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal short2"]
+position = Vector2(538, 341)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="horizontal short4" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal short4"]
+position = Vector2(714.95, 249.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal short4"]
+position = Vector2(713, 247)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="horizontal short5" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal short5"]
+position = Vector2(864.95, 522.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal short5"]
+position = Vector2(863, 520)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="horizontal short6" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal short6"]
+position = Vector2(936.95, 181.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal short6"]
+position = Vector2(935, 179)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-253, -71)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(521.95, 489.3)
+scale = Vector2(0.0561439, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(522.75, 489)
+shape = SubResource("RectangleShape2D_f54fe")
+
+[node name="obstacle verticle" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="obstacle verticle"]
+position = Vector2(197, 334)
+rotation = 1.5708
+scale = Vector2(0.0358803, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle verticle"]
+position = Vector2(197, 334)
+shape = SubResource("RectangleShape2D_rphqq")
+
+[node name="obs verticle short" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="obs verticle short"]
+position = Vector2(984, 503.192)
+rotation = 4.71239
+scale = Vector2(0.0242034, 0.0860981)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs verticle short"]
+position = Vector2(984, 503.75)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_4yine")
+
+[node name="obs verticle short2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="obs verticle short2"]
+position = Vector2(506.922, 282.364)
+rotation = 4.71239
+scale = Vector2(0.0242034, 0.0860981)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obs verticle short2"]
+position = Vector2(506.922, 282.922)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_4yine")
+
+[node name="horizontal shorter" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal shorter"]
+position = Vector2(1077.48, 411.3)
+scale = Vector2(0.0318754, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal shorter"]
+position = Vector2(1077.47, 411.8)
+shape = SubResource("RectangleShape2D_qntbl")
+
+[node name="horizontal shorter2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="horizontal shorter2"]
+position = Vector2(359.475, 185.3)
+scale = Vector2(0.0318754, 0.1)
+texture = ExtResource("7_7jmig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horizontal shorter2"]
+position = Vector2(359.475, 185.8)
+shape = SubResource("RectangleShape2D_qntbl")
+
+[node name="timer" parent="." instance=ExtResource("7_phaxj")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 503.0
+offset_top = 28.0
+offset_right = 662.0
+offset_bottom = 66.0
+grow_vertical = 1
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("8_f0hvc")]
+autoplay = false

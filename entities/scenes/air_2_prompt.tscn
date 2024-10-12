@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://brlfs3doh2fbl"]
+
+[ext_resource type="Texture2D" uid="uid://cusvopi015sj8" path="res://entities/assets/new/air bg.png" id="1_8ae2q"]
+[ext_resource type="Texture2D" uid="uid://bjhtukguyaf1x" path="res://entities/assets/new/Cloud Tileset.png" id="2_j01bu"]
+[ext_resource type="PackedScene" uid="uid://cq8vt03f8farj" path="res://entities/scenes/player.tscn" id="3_5wfee"]
+[ext_resource type="PackedScene" uid="uid://c4b5s2j68brs4" path="res://entities/scenes/arrow_prompt_back_air.tscn" id="4_o27c0"]
+[ext_resource type="PackedScene" uid="uid://20mtruu0ofp3" path="res://entities/scenes/timer_3.tscn" id="5_xmrpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyk3y"]
+size = Vector2(1239, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yknm"]
+size = Vector2(42, 708)
+
+[node name="air2 prompt" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 331.875)
+scale = Vector2(1, 1.03083)
+texture = ExtResource("1_8ae2q")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(70, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(244, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(419, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(592, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="Sprite2D5" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(768, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(941, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="Sprite2D7" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(1113, 695)
+scale = Vector2(2.9125, 1.28125)
+texture = ExtResource("2_j01bu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(587.5, 658.5)
+shape = SubResource("RectangleShape2D_uyk3y")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-14, 344)
+shape = SubResource("RectangleShape2D_2yknm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1168, 338)
+shape = SubResource("RectangleShape2D_2yknm")
+
+[node name="player" parent="." instance=ExtResource("3_5wfee")]
+position = Vector2(246, 407)
+
+[node name="arrow_prompt_back_air" parent="." instance=ExtResource("4_o27c0")]
+position = Vector2(73, 571)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 198.0
+offset_top = 141.0
+offset_right = 922.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.976471, 0.152941, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "GO BACK TO COMPLETE THE LEVEL !"
+
+[node name="timer_3" parent="." instance=ExtResource("5_xmrpe")]
+offset_left = 490.0
+offset_top = 7.0
+offset_right = 662.0
+offset_bottom = 61.0
+
+[connection signal="area_entered" from="arrow_prompt_back_air" to="player" method="_on_arrow_prompt_back_air_area_entered"]

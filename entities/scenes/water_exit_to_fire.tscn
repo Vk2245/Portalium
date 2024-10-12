@@ -1,0 +1,215 @@
+[gd_scene load_steps=14 format=3 uid="uid://dx0nfueo6r0ry"]
+
+[ext_resource type="Texture2D" uid="uid://b6dfamyqnhly7" path="res://entities/assets/new/water bg.jpg" id="1_mud3i"]
+[ext_resource type="PackedScene" uid="uid://cq8vt03f8farj" path="res://entities/scenes/player.tscn" id="2_kjvr4"]
+[ext_resource type="Texture2D" uid="uid://bhrt4fjq4cqu7" path="res://entities/assets/new/ocean bed.jpg" id="3_p13jf"]
+[ext_resource type="PackedScene" uid="uid://dq2p6clk405q4" path="res://entities/scenes/water_anim.tscn" id="4_60ta0"]
+[ext_resource type="PackedScene" uid="uid://c877e7op0cl7h" path="res://entities/scenes/water_exit.tscn" id="5_ragmx"]
+[ext_resource type="PackedScene" uid="uid://cudd48koqxx1m" path="res://entities/scenes/timer_2.tscn" id="6_0jkah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jubgr"]
+size = Vector2(23, 658)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf231"]
+size = Vector2(1176, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1tte"]
+size = Vector2(69.125, 45.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyil7"]
+size = Vector2(184.5, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gxut"]
+size = Vector2(182, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wsxj"]
+size = Vector2(183, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x01ou"]
+size = Vector2(282.5, 43)
+
+[node name="water exit to fire" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0.65098, 0.65098, 0.65098, 1)
+texture_filter = 1
+position = Vector2(579.75, 325.5)
+scale = Vector2(2.6709, 2.70417)
+texture = ExtResource("1_mud3i")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." instance=ExtResource("2_kjvr4")]
+position = Vector2(-260, 403)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="wall2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1162, 326)
+shape = SubResource("RectangleShape2D_jubgr")
+
+[node name="wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.5, 319)
+shape = SubResource("RectangleShape2D_jubgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(576, 634)
+scale = Vector2(2.15245, 0.48623)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(577, 633)
+shape = SubResource("RectangleShape2D_vf231")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(230, 572)
+scale = Vector2(0.126588, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(231, 571)
+shape = SubResource("RectangleShape2D_p1tte")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(540, 513)
+scale = Vector2(0.126588, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(539, 513)
+shape = SubResource("RectangleShape2D_p1tte")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7"]
+position = Vector2(97.875, 314.25)
+scale = Vector2(0.126588, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(96.875, 314.25)
+shape = SubResource("RectangleShape2D_p1tte")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D10"]
+position = Vector2(479.875, 330.25)
+scale = Vector2(0.126588, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2(479, 330)
+shape = SubResource("RectangleShape2D_p1tte")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(450, 573)
+scale = Vector2(0.126588, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(448.438, 572.25)
+shape = SubResource("RectangleShape2D_p1tte")
+
+[node name="water anim" parent="." instance=ExtResource("4_60ta0")]
+modulate = Color(1, 1, 1, 0.835294)
+position = Vector2(-57, 125)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+position = Vector2(355, 453)
+scale = Vector2(0.329855, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(352.75, 453.5)
+shape = SubResource("RectangleShape2D_lyil7")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D9"]
+position = Vector2(642.875, 236.25)
+scale = Vector2(0.329855, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2(640.625, 236.75)
+shape = SubResource("RectangleShape2D_lyil7")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D12"]
+position = Vector2(974.875, 189.25)
+scale = Vector2(0.329855, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+position = Vector2(977, 188)
+shape = SubResource("RectangleShape2D_lyil7")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D11"]
+position = Vector2(650.875, 422.25)
+scale = Vector2(0.329855, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(648.625, 422.75)
+shape = SubResource("RectangleShape2D_lyil7")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6"]
+position = Vector2(119, 382)
+scale = Vector2(0.329855, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(118, 382.5)
+shape = SubResource("RectangleShape2D_5gxut")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D8"]
+position = Vector2(307.875, 263.25)
+scale = Vector2(0.329855, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(308.375, 262.25)
+shape = SubResource("RectangleShape2D_8wsxj")
+
+[node name="water anim2" parent="." instance=ExtResource("4_60ta0")]
+modulate = Color(1, 1, 1, 0.87451)
+position = Vector2(73, -197)
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D13"]
+position = Vector2(945, 284)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_p13jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+position = Vector2(943.75, 282.5)
+shape = SubResource("RectangleShape2D_x01ou")
+
+[node name="water anim3" parent="." instance=ExtResource("4_60ta0")]
+position = Vector2(410, -233)
+
+[node name="water exit" parent="." instance=ExtResource("5_ragmx")]
+position = Vector2(28, 447)
+
+[node name="timer_2" parent="." instance=ExtResource("6_0jkah")]
+offset_left = 482.0
+offset_top = 6.0
+offset_right = 655.0
+offset_bottom = 58.0

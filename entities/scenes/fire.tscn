@@ -1,0 +1,173 @@
+[gd_scene load_steps=11 format=3 uid="uid://0717qseai7la"]
+
+[ext_resource type="Texture2D" uid="uid://c6irrjeqlilcw" path="res://entities/assets/new/fire bg.jpg" id="1_1xh3h"]
+[ext_resource type="Texture2D" uid="uid://l84qdrxtmufv" path="res://entities/assets/backgrounds/volc.png" id="2_8hrfh"]
+[ext_resource type="PackedScene" uid="uid://u2f61svlqo8i" path="res://entities/scenes/timer.tscn" id="3_x6i70"]
+[ext_resource type="PackedScene" uid="uid://cq8vt03f8farj" path="res://entities/scenes/player.tscn" id="4_akjxa"]
+[ext_resource type="PackedScene" uid="uid://dh10bkbp5bmnj" path="res://entities/scenes/arrow_prompt_fire.tscn" id="5_36exi"]
+[ext_resource type="PackedScene" uid="uid://brvx1btyr02fb" path="res://entities/scenes/red_portal_fire.tscn" id="6_mffyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eht0o"]
+size = Vector2(1180, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daooj"]
+size = Vector2(13, 661)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkgxt"]
+size = Vector2(294, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8qe1"]
+size = Vector2(97, 51)
+
+[node name="Fire" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(581, 329.25)
+scale = Vector2(0.850725, 0.829193)
+texture = ExtResource("1_1xh3h")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(581.25, 633)
+scale = Vector2(3.96441, 1)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(579, 631)
+shape = SubResource("RectangleShape2D_eht0o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3.5, 320.5)
+shape = SubResource("RectangleShape2D_daooj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1154, 329)
+shape = SubResource("RectangleShape2D_daooj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 526.0
+offset_top = -4.0
+offset_right = 646.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 40
+text = "FIRE 
+"
+
+[node name="timer" parent="." instance=ExtResource("3_x6i70")]
+anchors_preset = 9
+anchor_right = 0.0
+offset_left = 898.0
+offset_top = 28.0
+offset_right = 1059.0
+offset_bottom = 80.0
+grow_horizontal = 1
+
+[node name="player" parent="." instance=ExtResource("4_akjxa")]
+position = Vector2(-260, 394)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(317, 568)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(320.25, 566)
+shape = SubResource("RectangleShape2D_nkgxt")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D8"]
+position = Vector2(788.5, 392)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(791.75, 390)
+shape = SubResource("RectangleShape2D_nkgxt")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(594.5, 496)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(597.75, 494)
+shape = SubResource("RectangleShape2D_nkgxt")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+position = Vector2(143.5, 349)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(146.75, 347)
+shape = SubResource("RectangleShape2D_nkgxt")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D10"]
+position = Vector2(152.5, 177)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2(155.75, 175)
+shape = SubResource("RectangleShape2D_nkgxt")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(338, 430)
+scale = Vector2(0.312712, 1)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(337.5, 429.5)
+shape = SubResource("RectangleShape2D_q8qe1")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D9"]
+position = Vector2(553.125, 235)
+scale = Vector2(0.312712, 1)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2(552.625, 234.5)
+shape = SubResource("RectangleShape2D_q8qe1")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7"]
+position = Vector2(876.125, 543)
+scale = Vector2(0.312712, 1)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(875.625, 542.5)
+shape = SubResource("RectangleShape2D_q8qe1")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6"]
+position = Vector2(414.125, 293)
+scale = Vector2(0.312712, 1)
+texture = ExtResource("2_8hrfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(413.625, 292.5)
+shape = SubResource("RectangleShape2D_q8qe1")
+
+[node name="arrow_prompt_fire" parent="." instance=ExtResource("5_36exi")]
+position = Vector2(1092, 550)
+
+[node name="red portal fire" parent="." instance=ExtResource("6_mffyl")]
+position = Vector2(572, 233)
+rotation = 3.14159
+
+[connection signal="area_entered" from="arrow_prompt_fire" to="player" method="_on_arrow_prompt_fire_area_entered"]
+[connection signal="area_entered" from="red portal fire" to="player" method="_on_red_portal_fire_area_entered"]
